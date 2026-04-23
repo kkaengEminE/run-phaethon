@@ -45,7 +45,7 @@ export class Game {
     this.zeusModel.group.removeFromParent();
     camera.add(this.zeusModel.group);
     this.zeusModel.group.position.set(-7, 5, -14);
-    this.zeusModel.group.scale.setScalar(2.5);
+    this.zeusModel.group.scale.setScalar(1.25);
     this.zeusModel.group.visible = false;
 
     // Systems
