@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+#game-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* HUD */
+#hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#orbit-progress {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#orbit-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffaa00, #ff6600);
+  border-radius: 12px;
+  transition: width 0.1s;
+}
+
+#orbit-text {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+#damage-meter {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#damage-fill {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(0deg, #44ff44, #ffff00, #ff4444);
+  border-radius: 0 0 10px 10px;
+  transition: height 0.2s;
+}
+
+#damage-label {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+#zeus-indicator {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-align: center;
+}
+
+#zeus-face {
+  font-size: 48px;
+  line-height: 1;
+  transition: transform 0.3s;
+}
+
+#zeus-label {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+#altitude-indicator {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#altitude-text {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(0, 100, 0, 0.6);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+/* Game Screens */
+.game-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.game-screen h1 {
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #ffcc00, #ff8800, #ff4400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.game-screen .subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 32px;
+}
+
+.game-screen .instructions {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 2;
+  margin-bottom: 40px;
+}
+
+.game-screen .start-prompt {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 200, 50, 0.8);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
