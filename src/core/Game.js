@@ -39,6 +39,15 @@ export class Game {
     this.zeusModel = new ZeusModel(scene);
     this.fireEffect = new FireEffect(scene);
 
+    // Reparent Zeus as a camera child so he sits like an always-visible
+    // satellite in the upper-left of the viewport regardless of orbit angle.
+    scene.add(camera);
+    this.zeusModel.group.removeFromParent();
+    camera.add(this.zeusModel.group);
+    this.zeusModel.group.position.set(-7, 5, -14);
+    this.zeusModel.group.scale.setScalar(2.5);
+    this.zeusModel.group.visible = false;
+
     // Systems
     this.physics = new OrbitPhysics();
     this.cameraSystem = new CameraSystem(camera);
@@ -121,6 +130,8 @@ export class Game {
 
     const orbitState = this.physics.getState();
     this.cameraSystem.reset(orbitState);
+
+    this.zeusModel.group.visible = true;
 
     this.screens.hideAll();
     this.hud.show();
