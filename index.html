@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run Phaethon - 파에톤의 태양 마차</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="./assets/index-2gAHKn0B.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CiSWSQX2.css">
+</head>
+<body>
+  <canvas id="game-canvas"></canvas>
+
+  <!-- HUD Overlay -->
+  <div id="hud" style="display:none;">
+    <div id="orbit-progress">
+      <div id="orbit-bar"></div>
+      <span id="orbit-text">0%</span>
+    </div>
+    <div id="damage-meter">
+      <div id="damage-fill"></div>
+      <span id="damage-label">Damage</span>
+    </div>
+    <div id="zeus-indicator">
+      <div id="zeus-face">😐</div>
+      <div id="zeus-label">Zeus</div>
+    </div>
+    <div id="altitude-indicator">
+      <span id="altitude-text">SAFE</span>
+    </div>
+  </div>
+
+  <!-- Game Screens -->
+  <div id="title-screen" class="game-screen">
+    <h1>Run Phaethon</h1>
+    <p class="subtitle">파에톤의 태양 마차</p>
+    <div class="instructions">
+      <p>⬆⬇ 상하 조절 &nbsp; ⬅➡ 좌우 조향</p>
+      <p>Space 점프</p>
+    </div>
+    <p class="start-prompt">Press Space to Start</p>
+  </div>
+
+  <div id="win-screen" class="game-screen" style="display:none;">
+    <h1>Victory!</h1>
+    <p class="subtitle">파에톤이 태양 마차를 성공적으로 몰았습니다!</p>
+    <p id="win-stats"></p>
+    <p class="start-prompt">Press Space to Play Again</p>
+  </div>
+
+  <div id="lose-screen" class="game-screen" style="display:none;">
+    <h1 id="lose-title">Game Over</h1>
+    <p id="lose-message" class="subtitle"></p>
+    <p id="lose-stats"></p>
+    <p class="start-prompt">Press Space to Try Again</p>
+  </div>
+
+</body>
+</html>
