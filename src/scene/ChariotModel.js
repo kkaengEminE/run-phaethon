@@ -271,10 +271,10 @@ export class ChariotModel {
 
     // Orient chariot tangent to orbit (facing forward).
     // X=π base flip makes local +Y point radially outward (head toward sky, not Earth).
-    const tangentAngle = orbitState.angle + Math.PI / 2;
-    this.group.rotation.x = Math.PI + (orbitState.lateralVelocity || 0) * 0.3;
-    this.group.rotation.y = -(orbitState.velocityAlt || 0) * 0.02;
-    this.group.rotation.z = tangentAngle;
+    // No velocity-based bank/pitch — chariot stays rigidly aligned in view.
+    this.group.rotation.x = Math.PI;
+    this.group.rotation.y = 0;
+    this.group.rotation.z = orbitState.angle + Math.PI / 2;
 
     // Animate horse legs (gallop)
     this.legSets.forEach((legs, horseIdx) => {
